@@ -6,8 +6,9 @@
 
   <!-- Redirect to hash-based routing for GitHub Pages -->
   <script type="text/javascript">
-    if (document.location.pathname !== '/WeatherCounterApp/' && !document.location.pathname.startsWith('/WeatherCounterApp/index.html')) {
-      document.location.href = '/WeatherCounterApp/#' + document.location.pathname;
+    // Redirect for hash-based navigation
+    if (!location.hash.startsWith('#')) {
+      location.href = '/WeatherCounterApp/#' + location.pathname;
     }
   </script>
 <style>body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f5f5f5}</style><link rel="stylesheet" href="styles.48accf0127352447.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.48accf0127352447.css"></noscript></head>

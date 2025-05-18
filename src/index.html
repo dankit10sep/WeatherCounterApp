@@ -1,13 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>WeatherCounterApp</title>
-  <base href="/">
+  <base href="/WeatherCounterApp/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Redirect to hash-based routing for GitHub Pages -->
+  <script type="text/javascript">
+    if (document.location.pathname !== '/WeatherCounterApp/' && !document.location.pathname.startsWith('/WeatherCounterApp/index.html')) {
+      document.location.href = '/WeatherCounterApp/#' + document.location.pathname;
+    }
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

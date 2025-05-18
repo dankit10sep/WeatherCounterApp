@@ -1,0 +1,37 @@
+<div class="weather-container">
+  <div class="left-panel">
+    <input type="text" placeholder="Type city name" [(ngModel)]="cityName" />
+    <button (click)="addCity()">+</button>
+    <ul>
+      <li *ngFor="let city of cities$ | async; let i = index">
+        <div class="city" (click)="showDetails(city)">
+          {{ city.name }} - {{ city.temperature }} {{ city.status }}
+          <img [src]="city.icon" />
+        </div>
+        <div class="actions">
+          <button (click)="refreshCity(city)">🔄</button>
+          <button (click)="deleteCity(i)">❌</button>
+        </div>
+      </li>
+    </ul>
+    <button (click)="clearAll()">Clear All</button>
+  </div>
+
+  <div class="right-panel" *ngIf="selectedCity$ | async as selectedCity">
+    <h3>{{ selectedCity.name }}</h3>
+    <img [src]="selectedCity.icon" />
+    <p>{{ selectedCity.temperature }}</p>
+    <p>{{ selectedCity.status }}</p>
+    <p>Wind: {{ selectedCity.windSpeed }}</p>
+    <p>Pressure: {{ selectedCity.pressure }}</p>
+
+    <div class="forecast">
+      <div *ngFor="let day of selectedCity.forecast">
+        <p>{{ day.date | date: 'shortDate' }}</p>
+        <p>Min: {{ day.minTemp }}°C</p>
+        <p>Max: {{ day.maxTemp }}°C</p>
+        <p>{{ day.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

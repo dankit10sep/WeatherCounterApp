@@ -1,0 +1,9 @@
+<div class="navbar">
+  <div class="nav-item" [ngClass]="{ active: router.url.includes('counter') }" (click)="navigateTo('/counter')">
+    Counter App
+    <span class="badge">{{ counterCount$ | async }}</span>
+  </div>
+  <div class="nav-item" [ngClass]="{ active: router.url.includes('vatavaran') }" (click)="navigateTo('/vatavaran')">
+    Weather App
+  </div>
+</div>
